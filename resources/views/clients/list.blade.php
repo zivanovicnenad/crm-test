@@ -37,7 +37,7 @@
                                     <td>{{ $client->last_name }}</td>
                                     <td>{{ $client->email }}</td>
                                     <td>{{ $client->phone }}</td>
-                                    <td>{{ $client->cachLoans->count() > 0 ? 'yes' : 'no'}}</td>
+                                    <td>{{ $client->cashLoans->count() > 0 ? 'yes' : 'no'}}</td>
                                     <td>{{ $client->homeLoans->count() > 0 ? 'yes' : 'no'}}</td>
                                     <td>
                                         <a href="/clients/{{ $client->id }}/edit" class="btn btn-primary">Edit</a>

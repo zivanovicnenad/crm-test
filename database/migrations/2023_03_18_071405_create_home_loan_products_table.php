@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('home_loan_products', function (Blueprint $table) {
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('adviser_id');
-            $table->float('property_value');
-            $table->float('down_payment_amount');
+            $table->string('property_value');
+            $table->string('down_payment_amount');
             $table->timestamps();
             $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('adviser_id')->references('id')->on('users');

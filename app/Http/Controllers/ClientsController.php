@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CashLoanProduct;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class ClientsController extends Controller
@@ -65,6 +67,19 @@ class ClientsController extends Controller
                 'email' => $request->email ?? '',
                 'phone' => $request->phone ?? '',
             ]);
+
+        if (!empty($request->loan_amount)) {
+            CashLoanProduct::updateOrCreate(
+                [
+                    'client_id' => $request->client_id,
+                    'adviser_id' => Auth::user()->id,
+                ],
+                [
+                    'loan_amount' => $request->loan_amount
+                ]
+            );
+        }
+
         return Redirect::to('/clients/' . $id . '/edit')->with('message', 'Client updated.');
     }
 

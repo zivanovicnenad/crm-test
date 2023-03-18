@@ -15,7 +15,7 @@ class Client extends Model
     /**
      * Get the cach loans for the adviser.
      */
-    public function cachLoans(): HasMany
+    public function cashLoans(): HasMany
     {
         return $this->hasMany(CashLoanProduct::class);
     }

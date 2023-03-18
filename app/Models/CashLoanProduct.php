@@ -10,6 +10,7 @@ class CashLoanProduct extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['client_id', 'adviser_id', 'loan_amount'];
     /**
      * Get the client of the cash loan product.
      */

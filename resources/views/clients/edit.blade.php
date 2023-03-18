@@ -15,6 +15,7 @@
                         <form method="post"
                             action="{{ url('/clients/' . $client->id . '/update') }}">
                             @csrf
+                            <input type="hidden" name="client_id" value="{{ $client }}" />
                             <div class="form-group">
                                 <label for="first-name">First Name</label>
                                 <input type="text" id="first-name" name="first_name" value="{{ $client->first_name }}" class="form-control" required="">
@@ -37,6 +38,26 @@
                                     <div class="error">{{ $errors->first('phone') }}</div>
                                 @endif
                             </div>
+
+                            <div class="card-header">{{ __('Cash loan application') }}</div>
+
+                            <div class="form-group">
+                                <label for="loan-amount">Loan amount</label>
+                                <input type="text" id="loan-amount" name="loan_amount" class="form-control" value="{{ $client->cashLoans->first()->loan_amount ?? 0 }}">
+                            </div>
+
+                            <div class="card-header">{{ __('Home loan application') }}</div>
+
+                            <div class="form-group">
+                                <label for="property-value">Property value</label>
+                                <input type="text" id="property-value" name="proprty_value" class="form-control" value="{{ $client->homeLoans->first()->property_value ?? '' }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="down-payment-amount">Property value</label>
+                                <input type="text" id="down-payment-amount" name="down_payment_amount" class="form-control" value="{{ $client->homeLoans->first()->down_payment_amount ?? 0 }}">
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                     </div>
