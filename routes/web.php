@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/clients', [App\Http\Controllers\ClientsController::class, 'index'])->name('clients')->middleware('auth');
+Route::get('/reports', [App\Http\Controllers\ReportsController::class, 'index'])->name('reports')->middleware('auth');
