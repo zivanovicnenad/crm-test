@@ -66,7 +66,7 @@
                                 </li>
                             @endif
 
-                            @if(Request::is('edit-client'))
+                            @if(isset($client) && Request::is('clients/' . $client->id . '/edit'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('clients') }}">{{ __('Go back to clients') }}</a>
                                 </li>
