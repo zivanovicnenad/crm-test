@@ -4,8 +4,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                <h3>{{ __('Create Client') }}</h3>
                 <div class="card">
-                    <div class="card-header">{{ __('Create Client') }}</div>
+                    <div class="card-header">{{ __('Client data') }}</div>
                         <div class="card-body">
                         @if(session()->has('message'))
                             <div class="alert alert-success">
@@ -37,7 +38,9 @@
                                     <div class="error">{{ $errors->first('phone') }}</div>
                                 @endif
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                <h3>{{ __('Update Client') }}</h3>
                 <form method="post" action="{{ url('/clients/' . $client->id . '/update') }}">
                     @csrf
                     <input type="hidden" name="client_id" value="{{ $client->id }}" />
