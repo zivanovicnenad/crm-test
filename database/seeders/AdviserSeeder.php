@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use \App\Models\Adviser;
+use \App\Models\User;
 
 class AdviserSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class AdviserSeeder extends Seeder
     public function run(): void
     {
         for($i = 0; $i < 100; $i++) {
-            Adviser::factory()->create();
+            User::factory()->create();
         }
     }
 }

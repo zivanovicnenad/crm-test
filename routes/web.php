@@ -17,4 +17,6 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('/clients', [App\Http\Controllers\ClientsController::class, 'index'])->name('clients')->middleware('auth');
+Route::get('/create-client', [App\Http\Controllers\ClientsController::class, 'create'])->name('create-client')->middleware('auth');
+Route::post('/save-client', [App\Http\Controllers\ClientsController::class, 'store'])->name('save-client')->middleware('auth');
 Route::get('/reports', [App\Http\Controllers\ReportsController::class, 'index'])->name('reports')->middleware('auth');

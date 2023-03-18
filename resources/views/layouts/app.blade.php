@@ -51,7 +51,20 @@
                                     <a class="nav-link" href="{{ route('reports') }}">{{ __('View report') }}</a>
                                 </li>
                             @endif
+                            @if(Request::is('clients'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Go back to dashboard') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('create-client') }}">{{ __('Create client') }}</a>
+                                </li>
+                            @endif
 
+                            @if(Request::is('create-client'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('clients') }}">{{ __('Go back to clients') }}</a>
+                                </li>
+                            @endif
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"

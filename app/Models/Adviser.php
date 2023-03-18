@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
-class Adviser extends Model
+
+class Adviser extends User
 {
-    use HasFactory;
+    protected $table = 'users';
 }

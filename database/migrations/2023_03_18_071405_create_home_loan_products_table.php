@@ -18,7 +18,7 @@ return new class extends Migration
             $table->float('down_payment_amount');
             $table->timestamps();
             $table->foreign('client_id')->references('id')->on('clients');
-            $table->foreign('adviser_id')->references('id')->on('advisers');
+            $table->foreign('adviser_id')->references('id')->on('users');
         });
     }
 
