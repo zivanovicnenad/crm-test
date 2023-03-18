@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CashLoanProduct;
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\HomeLoanProduct;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -76,6 +77,19 @@ class ClientsController extends Controller
                 ],
                 [
                     'loan_amount' => $request->loan_amount
+                ]
+            );
+        }
+
+        if (!empty($request->property_value) && !empty($request->down_payment_amount)) {
+            HomeLoanProduct::updateOrCreate(
+                [
+                    'client_id' => $request->client_id,
+                    'adviser_id' => Auth::user()->id,
+                ],
+                [
+                    'property_value' => $request->property_value,
+                    'down_payment_amount' => $request->down_payment_amount
                 ]
             );
         }

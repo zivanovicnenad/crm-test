@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('home_loan_products', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('adviser_id');
             $table->string('property_value');

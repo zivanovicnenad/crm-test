@@ -15,7 +15,7 @@
                         <form method="post"
                             action="{{ url('/clients/' . $client->id . '/update') }}">
                             @csrf
-                            <input type="hidden" name="client_id" value="{{ $client }}" />
+                            <input type="hidden" name="client_id" value="{{ $client->id }}" />
                             <div class="form-group">
                                 <label for="first-name">First Name</label>
                                 <input type="text" id="first-name" name="first_name" value="{{ $client->first_name }}" class="form-control" required="">
@@ -50,11 +50,11 @@
 
                             <div class="form-group">
                                 <label for="property-value">Property value</label>
-                                <input type="text" id="property-value" name="proprty_value" class="form-control" value="{{ $client->homeLoans->first()->property_value ?? '' }}">
+                                <input type="text" id="property-value" name="property_value" class="form-control" value="{{ $client->homeLoans->first()->property_value ?? '' }}">
                             </div>
 
                             <div class="form-group">
-                                <label for="down-payment-amount">Property value</label>
+                                <label for="down-payment-amount">Down payment amount</label>
                                 <input type="text" id="down-payment-amount" name="down_payment_amount" class="form-control" value="{{ $client->homeLoans->first()->down_payment_amount ?? 0 }}">
                             </div>
 

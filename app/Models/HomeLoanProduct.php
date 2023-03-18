@@ -10,6 +10,7 @@ class HomeLoanProduct extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['client_id', 'adviser_id', 'property_value', 'down_payment_amount'];
     /**
      * Get the client of the home loan product.
      */
