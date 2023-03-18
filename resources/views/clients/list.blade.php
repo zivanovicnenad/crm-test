@@ -14,7 +14,35 @@
                         </div>
                     @endif
 
-                    {{ __('You are on clients page!') }}
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Cach loan</th>
+                                <th>Home loan</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($clients as $client)
+                                <tr>
+                                    <td>{{ $client->first_name }}</td>
+                                    <td>{{ $client->last_name }}</td>
+                                    <td>{{ $client->email }}</td>
+                                    <td>{{ $client->phone }}</td>
+                                    <td>Mary Sue</td>
+                                    <td>Mary Sue</td>
+                                    <td>
+                                        <a href="/clients/edit/{{ $client->id }}" class="btn btn-primary">Edit</a>
+                                        <a href="/clients/delete/{{ $client->id }}" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
