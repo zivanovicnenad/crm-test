@@ -13,7 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @if(session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
                     <table class="table table-sm">
                         <thead>
                             <tr>
@@ -36,8 +40,8 @@
                                     <td>{{ $client->cachLoans->count() > 0 ? 'yes' : 'no'}}</td>
                                     <td>{{ $client->homeLoans->count() > 0 ? 'yes' : 'no'}}</td>
                                     <td>
-                                        <a href="/clients/edit/{{ $client->id }}" class="btn btn-primary">Edit</a>
-                                        <a href="/clients/delete/{{ $client->id }}" class="btn btn-danger">Delete</a>
+                                        <a href="/clients/{{ $client->id }}/edit" class="btn btn-primary">Edit</a>
+                                        <a href="/clients/{{ $client->id }}/delete" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

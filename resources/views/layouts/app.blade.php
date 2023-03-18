@@ -60,7 +60,13 @@
                                 </li>
                             @endif
 
-                            @if(Request::is('create-client'))
+                            @if(Request::is('clients/create'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('clients') }}">{{ __('Go back to clients') }}</a>
+                                </li>
+                            @endif
+
+                            @if(Request::is('edit-client'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('clients') }}">{{ __('Go back to clients') }}</a>
                                 </li>

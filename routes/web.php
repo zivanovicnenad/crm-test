@@ -16,7 +16,14 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-Route::get('/clients', [App\Http\Controllers\ClientsController::class, 'index'])->name('clients')->middleware('auth');
-Route::get('/create-client', [App\Http\Controllers\ClientsController::class, 'create'])->name('create-client')->middleware('auth');
-Route::post('/save-client', [App\Http\Controllers\ClientsController::class, 'store'])->name('save-client')->middleware('auth');
+
+Route::prefix('clients')->group(function () {
+    Route::get('/', [App\Http\Controllers\ClientsController::class, 'index'])->name('clients');
+    Route::get('/create', [App\Http\Controllers\ClientsController::class, 'create'])->name('create-client');
+    Route::post('/store', [App\Http\Controllers\ClientsController::class, 'store'])->name('save-client');
+    Route::get('/{id}/edit', [App\Http\Controllers\ClientsController::class, 'edit'])->name('edit-client');
+    Route::post('/{id}/update', [App\Http\Controllers\ClientsController::class, 'update'])->name('update-client');
+    Route::get('/{id}/delete', [App\Http\Controllers\ClientsController::class, 'delete'])->name('delete-client');
+})->middleware('auth');
+
 Route::get('/reports', [App\Http\Controllers\ReportsController::class, 'index'])->name('reports')->middleware('auth');
