@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Reports') }}
-                    <a href="/reports/export">Export</a>
+                    <a style="float: right;" href="/reports/export">Export</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-sm">

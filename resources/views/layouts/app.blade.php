@@ -72,6 +72,12 @@
                                 </li>
                             @endif
 
+                            @if(Request::is('reports'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Go back to dashboard') }}</a>
+                                </li>
+                            @endif
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
