@@ -20,8 +20,10 @@ class ReportsController extends Controller
         return view('reports.list', compact('loans'));
     }
 
-
-
+    /**
+     * Export Excel file.
+     *
+     */
     public function export()
     {
         return Excel::download(new ReportExport(), 'export.xlsx');

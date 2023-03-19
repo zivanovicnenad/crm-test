@@ -6,11 +6,17 @@ use App\Models\CashLoanProduct;
 use App\Models\HomeLoanProduct;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 
 class ReportHelper
 {
 
-    public function getLoans()
+    /**
+     * Fetch loans from database and map it in proper format.
+     *
+     * @return array
+     */
+    public function getLoans(): array
     {
         $adviserId = Auth::user()->id;
         $cashLoans = CashLoanProduct::where('adviser_id', $adviserId)->get();
@@ -22,7 +28,13 @@ class ReportHelper
         return $loans;
     }
 
-    private function prepareLoansData($loans, $productType)
+
+    /**
+     * Prepare loan data in accepted format that will be used in view.
+     *
+     * @return array
+     */
+    private function prepareLoansData(Collection $loans, string $productType): array
     {
         $returnData = [];
         if ($loans->count() > 0) {

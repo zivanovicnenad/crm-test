@@ -11,12 +11,20 @@ class ReportExport implements FromCollection, WithHeadings
 {
     use Exportable;
 
+    /**
+     * Prepare collection for export from array.\
+     *
+     * @return collection
+     */
     public function collection()
     {
         $reportHelper = new ReportHelper;
         return collect($reportHelper->getLoans());
     }
 
+    /**
+     * Set Excel file headings.
+     */
     public function headings(): array
     {
         return [
@@ -25,5 +33,4 @@ class ReportExport implements FromCollection, WithHeadings
             'Creation date',
         ];
     }
-
 }

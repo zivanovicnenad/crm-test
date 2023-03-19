@@ -23,11 +23,21 @@ class ClientsController extends Controller
         return view('clients.list', compact('clients'));
     }
 
+    /**
+     * Show the create clients screen.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function create()
     {
         return view('clients.create');
     }
 
+    /**
+     * Save client data.
+     *
+     * @return RedirectResponse
+     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -43,15 +53,26 @@ class ClientsController extends Controller
             'email' => $request->email ?? '',
             'phone' => $request->phone ?? '',
         ]);
+
         return Redirect::back()->with('message', 'Client saved.');
     }
 
+    /**
+     * Show the edit clients screen.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function edit($id)
     {
         $client = Client::find($id);
         return view('clients.edit',  compact('client'));
     }
 
+    /**
+     * Update client data.
+     *
+     * @return RedirectResponse
+     */
     public function update(Request $request, $id): RedirectResponse
     {
         $request->validate([
