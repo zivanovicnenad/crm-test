@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Reports') }}</div>
+                <div class="card-header">{{ __('Reports') }}
+                    <a href="/reports/export">Export</a>
+                </div>
                 <div class="card-body">
                     <table class="table table-sm">
                         <thead>

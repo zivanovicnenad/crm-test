@@ -26,4 +26,8 @@ Route::prefix('clients')->group(function () {
     Route::get('/{id}/delete', [App\Http\Controllers\ClientsController::class, 'delete'])->name('delete-client');
 })->middleware('auth');
 
-Route::get('/reports', [App\Http\Controllers\ReportsController::class, 'index'])->name('reports')->middleware('auth');
+
+Route::prefix('reports')->group(function () {
+    Route::get('/', [App\Http\Controllers\ReportsController::class, 'index'])->name('reports');
+    Route::get('/export', [App\Http\Controllers\ReportsController::class, 'export'])->name('export');
+})->middleware('auth');
