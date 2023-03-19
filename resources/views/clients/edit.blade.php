@@ -50,7 +50,8 @@
                             <div class="form-group">
                                 <label for="loan-amount">Loan amount</label>
                                 <input type="text" id="loan-amount" name="loan_amount" class="form-control"
-                                    value="{{ $client->cashLoans->first()->loan_amount ?? 0 }}">
+                                    value="{{ $client->cashLoans->first()->loan_amount ?? 0 }}"
+                                    @if($client->cashLoans->first()->adviser_id !== Auth::user()->id) disabled @endif>
                             </div>
                         </div>
                     </div>
@@ -60,12 +61,13 @@
                             <div class="form-group">
                                 <label for="property-value">Property value</label>
                                 <input type="text" id="property-value" name="property_value" class="form-control"
-                                    value="{{ $client->homeLoans->first()->property_value ?? '' }}">
+                                    value="{{ $client->homeLoans->first()->property_value ?? '' }}"
+                                    @if($client->homeLoans->first()->adviser_id !== Auth::user()->id) disabled @endif>
                             </div>
                             <div class="form-group">
                                 <label for="down-payment-amount">Down payment amount</label>
                                 <input type="text" id="down-payment-amount" name="down_payment_amount"
-                                    class="form-control"
+                                    class="form-control" @if($client->homeLoans->first()->adviser_id !== Auth::user()->id) disabled @endif
                                     value="{{ $client->homeLoans->first()->down_payment_amount ?? 0 }}">
                             </div>
                         </div>
